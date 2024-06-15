@@ -83,4 +83,10 @@ def search_customers():
     customers = Customer.search(name)
     for customer in customers:
         print(f"Customer ID: {customer['id']}, Name: {customer['name']}, Email: {customer['email']}")
-        
+
+def search_plumbers():
+    name = input("Name: ")
+    plumbers = Plumber.search(name)
+    for plumber in plumbers:
+        print(f"Plumber ID: {plumber['id']}, Name: {plumber['name']}, Rate: {plumber['rate']}")        
+
