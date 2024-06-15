@@ -68,4 +68,8 @@ def delete_customer():
     Customer.delete(customer_id)
     print(f"Customer {customer_id} deleted")
 
+def delete_plumber():
+    plumber_id = int(input("Plumber ID: "))
+    Plumber.delete(plumber_id)
+    print(f"Plumber {plumber_id} deleted")
     
