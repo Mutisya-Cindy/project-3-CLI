@@ -90,3 +90,9 @@ def search_plumbers():
     for plumber in plumbers:
         print(f"Plumber ID: {plumber['id']}, Name: {plumber['name']}, Rate: {plumber['rate']}")        
 
+def search_bookings():
+    search_term = input("Enter booking id to search: ")
+    bookings = Booking.search(search_term)
+    for booking in bookings:
+        print(f"Booking ID: {booking['id']}, Customer ID: {booking['customer_id']}, Plumber ID: {booking['plumber_id']}, Date: {booking['date']}, Time: {booking['time']}")
+
