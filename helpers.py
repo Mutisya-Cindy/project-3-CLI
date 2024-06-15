@@ -46,3 +46,26 @@ def update_customer():
     email = input("Email: ")
     Customer.update(customer_id, name, email)
     print(f"Customer {customer_id} updated")
+
+def update_plumber():
+    plumber_id = int(input("Plumber ID: "))
+    name = input("Name: ")
+    rate = float(input("Rate: "))
+    Plumber.update(plumber_id, name, rate)
+    print(f"Plumber {plumber_id} updated")
+
+def update_bookings():
+    booking_id = int(input("Booking ID: "))
+    customer_id = int(input("Customer ID: "))
+    plumber_id = int(input("Plumber ID: "))
+    date = input("Date: ")
+    Booking.update(booking_id, customer_id, plumber_id, date)
+    print(f"Booking {booking_id} updated")
+
+
+def delete_customer():
+    customer_id = int(input("Customer ID: "))
+    Customer.delete(customer_id)
+    print(f"Customer {customer_id} deleted")
+
+    
