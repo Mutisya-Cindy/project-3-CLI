@@ -77,3 +77,10 @@ def delete_bookings():
     booking_id = int(input("Booking ID: "))
     Booking.delete(booking_id)
     print(f"Booking {booking_id} deleted")
+
+def search_customers():
+    name = input("Name: ")
+    customers = Customer.search(name)
+    for customer in customers:
+        print(f"Customer ID: {customer['id']}, Name: {customer['name']}, Email: {customer['email']}")
+        
