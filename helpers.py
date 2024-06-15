@@ -72,4 +72,8 @@ def delete_plumber():
     plumber_id = int(input("Plumber ID: "))
     Plumber.delete(plumber_id)
     print(f"Plumber {plumber_id} deleted")
-    
+
+def delete_bookings():
+    booking_id = int(input("Booking ID: "))
+    Booking.delete(booking_id)
+    print(f"Booking {booking_id} deleted")
