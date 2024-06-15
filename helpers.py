@@ -11,3 +11,8 @@ def list_plumbers():
     plumbers = Plumber.all()
     for plumber in plumbers:
         print(f"Plumber ID: {plumber['id']}, Name: {plumber['name']}, Rate: {plumber['rate']}")
+
+def list_bookings():
+    bookings = Booking.all()
+    for booking in bookings:
+        print(f"Booking ID: {booking['id']}, Customer ID: {booking['customer_id']}, Plumber ID: {booking['plumber_id']}, Date: {booking['date']}, Time: {booking['time']}")
