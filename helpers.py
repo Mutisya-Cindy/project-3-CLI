@@ -40,4 +40,9 @@ def book_plumber():
     print(f"Booking {booking.date} added")    
 
 
-
+def update_customer():
+    customer_id = int(input("Customer ID: "))
+    name = input("Name: ")
+    email = input("Email: ")
+    Customer.update(customer_id, name, email)
+    print(f"Customer {customer_id} updated")
