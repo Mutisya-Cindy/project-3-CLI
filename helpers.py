@@ -31,3 +31,13 @@ def add_plumber():
     plumber.save()
     print(f"Plumber {plumber.name} added")
 
+def book_plumber():
+    customer_id = int(input("Customer ID: "))
+    plumber_id = int(input("Plumber ID: "))
+    date = input("Date: ")
+    booking = Booking(customer_id, plumber_id, date)
+    booking.save()
+    print(f"Booking {booking.date} added")    
+
+
+
