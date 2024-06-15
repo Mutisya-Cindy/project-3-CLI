@@ -5,7 +5,7 @@ from models.booking import Booking
 def list_customers():
     customers = Customer.all()
     for customer in customers:
-        print(f"Customer ID: {customer['id']}, Name: {customer['name']}, Email: {customer['email']}")
+        print(f"Customer ID: {customer['id']}, Name: {customer['name']}, Contact: {customer['contact']}")
 
 def list_plumbers():
     plumbers = Plumber.all()
@@ -15,84 +15,81 @@ def list_plumbers():
 def list_bookings():
     bookings = Booking.all()
     for booking in bookings:
-        print(f"Booking ID: {booking['id']}, Customer ID: {booking['customer_id']}, Plumber ID: {booking['plumber_id']}, Date: {booking['date']}, Time: {booking['time']}")
+        print(f"Booking ID: {booking['id']}, Customer: {booking['customer_name']}, Plumber: {booking['plumber_name']}, Date: {booking['date']}")
 
 def add_customer():
-    name = input("Name: ")
-    email = input("Email: ")
-    customer = Customer(name, email)
+    name = input("Enter customer name: ")
+    contact = input("Enter customer contact: ")
+    customer = Customer(name, contact)
     customer.save()
-    print(f"Customer {customer.name} added")       
+    print(f"Customer {name} added.")
 
 def add_plumber():
-    name = input("Name: ")
-    rate = float(input("Rate: "))
+    name = input("Enter plumber name: ")
+    rate = float(input("Enter plumber rate: "))
     plumber = Plumber(name, rate)
     plumber.save()
-    print(f"Plumber {plumber.name} added")
+    print(f"Plumber {name} added.")
 
 def book_plumber():
-    customer_id = int(input("Customer ID: "))
-    plumber_id = int(input("Plumber ID: "))
-    date = input("Date: ")
+    customer_id = int(input("Enter customer ID: "))
+    plumber_id = int(input("Enter plumber ID: "))
+    date = input("Enter booking date (YYYY-MM-DD): ")
     booking = Booking(customer_id, plumber_id, date)
     booking.save()
-    print(f"Booking {booking.date} added")    
-
+    print(f"Booking for customer {customer_id} with plumber {plumber_id} on {date} added.")
 
 def update_customer():
-    customer_id = int(input("Customer ID: "))
-    name = input("Name: ")
-    email = input("Email: ")
-    Customer.update(customer_id, name, email)
-    print(f"Customer {customer_id} updated")
+    customer_id = int(input("Enter customer ID: "))
+    name = input("Enter new customer name: ")
+    contact = input("Enter new customer contact: ")
+    Customer.update(customer_id, name, contact)
+    print(f"Customer {customer_id} updated.")
 
 def update_plumber():
-    plumber_id = int(input("Plumber ID: "))
-    name = input("Name: ")
-    rate = float(input("Rate: "))
+    plumber_id = int(input("Enter plumber ID: "))
+    name = input("Enter new plumber name: ")
+    rate = float(input("Enter new plumber rate: "))
     Plumber.update(plumber_id, name, rate)
-    print(f"Plumber {plumber_id} updated")
+    print(f"Plumber {plumber_id} updated.")
 
-def update_bookings():
-    booking_id = int(input("Booking ID: "))
-    customer_id = int(input("Customer ID: "))
-    plumber_id = int(input("Plumber ID: "))
-    date = input("Date: ")
+def update_booking():
+    booking_id = int(input("Enter booking ID: "))
+    customer_id = int(input("Enter new customer ID: "))
+    plumber_id = int(input("Enter new plumber ID: "))
+    date = input("Enter new booking date (YYYY-MM-DD): ")
     Booking.update(booking_id, customer_id, plumber_id, date)
-    print(f"Booking {booking_id} updated")
-
+    print(f"Booking {booking_id} updated.")
 
 def delete_customer():
-    customer_id = int(input("Customer ID: "))
+    customer_id = int(input("Enter customer ID to delete: "))
     Customer.delete(customer_id)
-    print(f"Customer {customer_id} deleted")
+    print(f"Customer {customer_id} deleted.")
 
 def delete_plumber():
-    plumber_id = int(input("Plumber ID: "))
+    plumber_id = int(input("Enter plumber ID to delete: "))
     Plumber.delete(plumber_id)
-    print(f"Plumber {plumber_id} deleted")
+    print(f"Plumber {plumber_id} deleted.")
 
-def delete_bookings():
-    booking_id = int(input("Booking ID: "))
+def delete_booking():
+    booking_id = int(input("Enter booking ID to delete: "))
     Booking.delete(booking_id)
-    print(f"Booking {booking_id} deleted")
+    print(f"Booking {booking_id} deleted.")
 
 def search_customers():
-    name = input("Name: ")
-    customers = Customer.search(name)
+    search_term = input("Enter customer name to search: ")
+    customers = Customer.search(search_term)
     for customer in customers:
-        print(f"Customer ID: {customer['id']}, Name: {customer['name']}, Email: {customer['email']}")
+        print(f"Customer ID: {customer['id']}, Name: {customer['name']}, Contact: {customer['contact']}")
 
 def search_plumbers():
-    name = input("Name: ")
-    plumbers = Plumber.search(name)
+    search_term = input("Enter plumber name to search: ")
+    plumbers = Plumber.search(search_term)
     for plumber in plumbers:
-        print(f"Plumber ID: {plumber['id']}, Name: {plumber['name']}, Rate: {plumber['rate']}")        
+        print(f"Plumber ID: {plumber['id']}, Name: {plumber['name']}, Rate: {plumber['rate']}")
 
 def search_bookings():
-    search_term = input("Enter booking id to search: ")
+    search_term = input("Enter booking ID to search: ")
     bookings = Booking.search(search_term)
     for booking in bookings:
-        print(f"Booking ID: {booking['id']}, Customer ID: {booking['customer_id']}, Plumber ID: {booking['plumber_id']}, Date: {booking['date']}, Time: {booking['time']}")
-
+        print(f"Booking ID: {booking['id']}, Customer: {booking['customer_name']}, Plumber: {booking['plumber_name']}, Date: {booking['date']}")
