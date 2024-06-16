@@ -1,7 +1,7 @@
 from database.connection import get_db_connection
 
 class Plumber:
-    def init(self, name, rate):
+    def __init__(self, name, rate):
         self.name = name
         self.rate = rate
 

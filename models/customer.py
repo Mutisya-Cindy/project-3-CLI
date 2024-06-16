@@ -1,7 +1,7 @@
 from database.connection import get_db_connection
 
 class Customer:
-    def init(self, name, contact):
+    def __init__(self, name, contact):
         self.name = name
         self.contact = contact
 

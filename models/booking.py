@@ -1,7 +1,7 @@
 from database.connection import get_db_connection
 
 class Booking:
-    def init(self, customer_id, plumber_id, date):
+    def __init__(self, customer_id, plumber_id, date):
         self.customer_id = customer_id
         self.plumber_id = plumber_id
         self.date = date
