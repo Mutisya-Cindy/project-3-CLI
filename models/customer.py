@@ -43,3 +43,15 @@ def delete(customer_id):
     cursor.execute('DELETE FROM customers WHERE id = ?', (customer_id,))
     conn.commit()
     conn.close()
+
+@staticmethod
+def search(search_term):
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    cursor.execute('''
+    SELECT * FROM customers
+    WHERE name LIKE ? OR contact LIKE ?
+    ''', (f'%{search_term}%', f'%{search_term}%'))
+    customers = cursor.fetchall()
+    conn.close()
+    return customers

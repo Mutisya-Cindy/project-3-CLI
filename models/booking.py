@@ -49,3 +49,18 @@ def delete(booking_id):
     cursor.execute('DELETE FROM bookings WHERE id = ?', (booking_id,))
     conn.commit()
     conn.close()
+
+@staticmethod
+def search(search_term):
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    cursor.execute('''
+    SELECT b.id, c.name as customer_name, p.name as plumber_name, b.date
+    FROM bookings b
+    INNER JOIN customers c ON b.customer_id = c.id
+    INNER JOIN plumbers p ON b.plumber_id = p.id
+    WHERE c.name LIKE ? OR p.name LIKE ?
+    ''', (f'%{search_term}%', f'%{search_term}%'))
+    bookings = cursor.fetchall()
+    conn.close()
+    return bookings    

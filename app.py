@@ -8,30 +8,28 @@ from helpers import (
 )
 
 def main():
-    create_tables()  
-
+    create_tables()
     while True:
         print("""
-        1. List customers
-        2. List plumbers
-        3. List bookings
-        4. Add customer
-        5. Add plumber
-        6. Book plumber
-        7. Update customer
-        8. Update plumber
-        9. Update booking
-        10. Delete customer
-        11. Delete plumber
-        12. Delete booking
-        13. Search customers
-        14. Search plumbers
-        15. Search bookings
-        16. Exit
-        """)
 
+    1. List customers
+    2. List plumbers
+    3. List bookings
+    4. Add customer
+    5. Add plumber
+    6. Book plumber
+    7. Update customer
+    8. Update plumber
+    9. Update booking
+    10. Delete customer
+    11. Delete plumber
+    12. Delete booking
+    13. Search customers
+    14. Search plumbers
+    15. Search bookings
+    16. Exit
+    """)
         choice = input("Enter your choice: ")
-
         if choice == '1':
             list_customers()
         elif choice == '2':

@@ -1,7 +1,6 @@
-import sqlite3 
-DATABASE = './database/plumbers.db'
+import sqlite3
 
 def get_db_connection():
-    conn = sqlite3.connect(DATABASE)
+    conn = sqlite3.connect('./database/plumbers.db')
     conn.row_factory = sqlite3.Row
     return conn
