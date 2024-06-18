@@ -82,6 +82,8 @@ github.com/Mutisya-Cindy.
 # License
 The content of this site is licensed under the MIT license Copyright (c) 2024.
 
+# Video link for application
+My app    ['https://drive.google.com/file/d/1-H4rXNzPTSEQCOgl8Y72puQLJN_bTc_j/view']
 
 
 
